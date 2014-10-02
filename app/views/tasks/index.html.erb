@@ -1,12 +1,12 @@
 <div ng-controller='TasksCtrl'>
   <form ng-submit="addTodo()">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-md-12">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="What do you need to get done?" name="todoText" ng-model="newTodo.text" required>
+          <input type="text" class="form-control" placeholder="What do you need to get done?" name="todoText" ng-model="newTodo.text" ng:required>
 
           <span class="input-group-btn">
-            <input class="btn btn-default" type="submit" value="Add" />
+            <input class="btn btn-success" type="submit" value="Add" />
           </span>
         </div>
       </div>
@@ -16,7 +16,8 @@
   <hr />
 
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-md-12">
+      <h1>You are {{ value }}% done with stuff!</h1>
       <div class="progress">
         <div class="progress-bar" 
              role="progressbar" 
@@ -30,12 +31,29 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-md-12">
       <ul class="list-unstyled tasks">
         <li ng-repeat='task in tasks'>
-          <input type="checkbox" ng-model="checkboxes" class="progress-checkbox" ng-checked="task.completed" ng-click="updateTodo(task)" />
-          {{ task.text }}
-          <div ng-click="deleteTodo(task.id)" class="btn btn-danger glyphicon glyphicon-trash"></div>
+          <div class="col-md-1">
+            <input type="checkbox" ng-model="checkboxes" class="progress-checkbox" ng-checked="task.completed" ng-click="updateTodo(task, !task.completed)" />
+          </div>
+
+          <form ng-submit="editTodo(task); editable = ''">
+            <div class="col-md-10 todo-text-body" ng-click="editable = 'text'">
+              <span ng-hide="editable == 'text'">{{ task.text }}</span>
+              <div ng-show="editable == 'text'" class="input-group">
+                  <input type="text" name="todoTextUpdate" ng:required ng-model="task.text" class="form-control" />
+
+                  <span class="input-group-btn">
+                    <input type="submit" class="btn btn-success" value="Save" />
+                  </span>
+              </div>
+            </div>
+          </form>
+
+          <div class="col-md-1">
+            <div ng-click="deleteTodo(task.id)" class="btn btn-danger glyphicon glyphicon-trash"></div>
+          </div>
         </li>
       </ul>
     </div>

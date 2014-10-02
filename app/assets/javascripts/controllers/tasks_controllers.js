@@ -25,7 +25,7 @@ app.controller('TasksCtrl', ['$scope', '$http', function ($scope, $http) {
 
   $scope.addTodo = function() {
     var task = {
-      text: $scope.newTodo.text,
+      text: $scope.newTodo.text
     };
     $http.post('/api/tasks.json', task).success(function(data) {
       $scope.tasks.push(data);
@@ -34,11 +34,22 @@ app.controller('TasksCtrl', ['$scope', '$http', function ($scope, $http) {
     });
   };
 
-  $scope.updateTodo = function(task) {
+  $scope.editTodo = function(task) {
+    var updatedTask = {
+      text: task.text,
+      completed: task.completed
+    };
+
+    $http.put('/api/tasks/' + task.id + '.json', updatedTask).success(function(data) {
+      updateProgressBar($scope.tasks);
+    });
+  };
+
+  $scope.updateTodo = function(task, completed) {
     $http.put('/api/tasks/' + task.id + '.json', {
-      completed: !task.completed
+      completed: completed
     }).success(function(data) {
-      $scope.tasks[data.id - 1].completed = !$scope.tasks[data.id - 1].completed;
+      $scope.tasks[data.id - 1].completed = data.completed;
       updateProgressBar($scope.tasks);
     });
   };
