@@ -1,0 +1,43 @@
+<div ng-controller='TasksCtrl'>
+  <form ng-submit="addTodo()">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="What do you need to get done?" name="todoText" ng-model="newTodo.text" required>
+
+          <span class="input-group-btn">
+            <input class="btn btn-default" type="submit" value="Add" />
+          </span>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="progress">
+        <div class="progress-bar" 
+             role="progressbar" 
+             aria-valuenow="{{ value }}" 
+             aria-valuemin="0" aria-valuemax="100" 
+             ng-style="percentageStyle">
+          {{ value }}%
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <ul class="list-unstyled tasks">
+        <li ng-repeat='task in tasks'>
+          <input type="checkbox" ng-model="checkboxes" class="progress-checkbox" ng-checked="task.completed" ng-click="updateTodo(task)" />
+          {{ task.text }}
+          <div ng-click="deleteTodo(task.id)" class="btn btn-danger glyphicon glyphicon-trash"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
