@@ -1,7 +1,7 @@
 <div ng-controller='TasksCtrl'>
   <form ng-submit="addTodo()">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-xs-12">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="What do you need to get done?" name="todoText" ng-model="newTodo.text" ng:required>
 
@@ -31,7 +31,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-xs-12">
       <ul class="list-unstyled tasks">
         <li ng-repeat='task in tasks'>
           <div class="col-md-1">
@@ -51,7 +51,7 @@
             </div>
           </form>
 
-          <div class="col-md-1">
+          <div class="col-xs-1">
             <div ng-click="deleteTodo(task.id)" class="btn btn-danger glyphicon glyphicon-trash"></div>
           </div>
         </li>
