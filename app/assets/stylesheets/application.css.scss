@@ -1,5 +1,5 @@
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -14,6 +14,10 @@
 
 .progress-bar {
   background-color: rgb(7, 106, 153);
+}
+
+.btn.btn-default {
+  min-height: 34px;
 }
 
 .tasks {
