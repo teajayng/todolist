@@ -39,9 +39,9 @@ gem 'thin'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'angular-rails-engine'
-gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+gem "foreman"
+gem 'bower-rails'
 
 group :development, :test do
   gem 'byebug'
@@ -51,8 +51,6 @@ group :development do
   gem 'better_errors'
   gem 'quiet_assets'
 end
-
-gem "foreman"
 
 group :production do
   gem "rails_12factor"
