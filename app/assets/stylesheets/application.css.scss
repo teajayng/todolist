@@ -1,5 +1,5 @@
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import 'bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets';
+@import 'bootstrap-sass-official/assets/stylesheets/bootstrap';
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -31,6 +31,10 @@
     margin: 4px 0;
     padding: 4px;
 
+    .todo-text-body {
+      cursor: pointer;
+    }
+
     &:hover {
       background-color: rgba(7, 106, 153, .05);
     }
@@ -49,6 +53,9 @@ input[type=checkbox] {
   padding: 14px;
 
   cursor: pointer;
+  -webkit-transition: border .2s cubic-bezier(0, 1.6, 1, 1.3);
+     -moz-transition: border .2s cubic-bezier(0, 1.6, 1, 1.3);
+       -o-transition: border .2s cubic-bezier(0, 1.6, 1, 1.3);
   vertical-align: middle;
 
   border: 2px solid rgba(182, 182, 182, 1.0);
@@ -59,6 +66,14 @@ input[type=checkbox] {
   box-shadow: inset 0 -15px 10px -12px rgba(0, 0, 0, .05), 0 1px 2px rgba(0, 0, 0, .05);
 
   -webkit-appearance: none;
+
+  &:hover {
+    -webkit-transition: border .07s ease-in-out;
+       -moz-transition: border .07s ease-in-out;
+         -o-transition: border .07s ease-in-out;
+
+    border: 2px solid rgba(124, 232, 151, .75);
+  }
 
   &:focus {
     outline: none;
@@ -108,8 +123,9 @@ input[type=checkbox] {
 }
 
 @media screen and (max-width: 768px) {
+
   .col-xs-1 {
-    padding: 0;
     width: auto;
+    padding: 0;
   }
 }
