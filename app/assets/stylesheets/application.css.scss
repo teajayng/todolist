@@ -1,5 +1,6 @@
 @import 'bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets';
 @import 'bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import 'angular-xeditable/dist/css/xeditable';
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -31,8 +32,15 @@
     margin: 4px 0;
     padding: 4px;
 
-    .todo-text-body {
-      cursor: pointer;
+    .task-name {
+      line-height: 35px;
+
+      span {
+        cursor: pointer;
+
+        color: rgb(7, 106, 153);
+        border-bottom: none;
+      }
     }
 
     &:hover {

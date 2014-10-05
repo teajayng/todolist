@@ -34,19 +34,9 @@ app.controller('TasksCtrl', ['$scope', '$http', function ($scope, $http) {
     });
   };
 
-  $scope.editTodo = function(task) {
-    var updatedTask = {
-      text: task.text,
-      completed: task.completed
-    };
-
-    $http.put('/api/tasks/' + task.id + '.json', updatedTask).success(function(data) {
-      updateProgressBar($scope.tasks);
-    });
-  };
-
   $scope.updateTodo = function(task, completed) {
     $http.put('/api/tasks/' + task.id + '.json', {
+      text: task.text,
       completed: completed
     }).success(function(data) {
       $scope.tasks[data.id - 1].completed = data.completed;

@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular/angular
+//= require angular-xeditable/dist/js/xeditable
 //= require main
 //= require_tree .

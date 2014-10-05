@@ -36,18 +36,11 @@
         <input type="checkbox" ng-model="checkboxes" class="progress-checkbox" ng-checked="task.completed" ng-click="updateTodo(task, !task.completed)" />
       </div>
 
-      <form ng-submit="editTodo(task); editable = ''" class="col-xs-8 col-lg-10">
-        <div class="todo-text-body" ng-click="editable = 'text'">
-          <span ng-hide="editable == 'text'">{{ task.text }}</span>
-          <div ng-show="editable == 'text'" class="input-group">
-              <input type="text" name="todoTextUpdate" ng:required ng-model="task.text" class="form-control" />
-
-              <span class="input-group-btn">
-                <input type="submit" class="btn btn-success" value="Save" />
-              </span>
-          </div>
-        </div>
-      </form>
+      <div class="col-xs-9 col-sm-10 col-md-10 col-lg-10 task-name">
+        <span editable-text="task.text" onaftersave="updateTodo(task, task.completed)">
+          {{ task.text }}
+        </span>
+      </div>
 
       <div class="col-xs-1 col-lg-1">
         <div ng-click="deleteTodo(task.id)" class="btn btn-danger glyphicon glyphicon-trash"></div>
